@@ -293,10 +293,6 @@ EXPORT void CALL inputControllerCommand(int Control, unsigned char *Command)
 #define CSTICK_UP 0x800
 #define CSTICK_DOWN 0x400
 
-int timeout = 0;
-
-extern void inputInitiateCallback(const char *headername);
-
 
 static void inputGetKeys_reuse(int16_t analogX, int16_t analogY, int Control, BUTTONS* Keys)
 {
@@ -371,25 +367,6 @@ static void inputGetKeys_default( int Control, BUTTONS *Keys )
       Keys->Value |= (analogY < 0) ? CSTICK_UP : CSTICK_DOWN;
 
    inputGetKeys_reuse(analogX, analogY, Control, Keys);
-}
-
-void inputInitiateCallback(const char *headername)
-{
-   struct retro_message msg;
-   char msg_local[256];
-
-   if (getKeys != &inputGetKeys_default)
-   {
-      getKeys = inputGetKeys_default;
-      inputGetKeys_default_descriptor();
-      snprintf(msg_local, sizeof(msg_local), "Controls: Default");
-      msg.msg = msg_local;
-      msg.frames = FRAME_DURATION;
-      timeout = FRAME_DURATION / 2;
-      if (environ_cb)
-         environ_cb(RETRO_ENVIRONMENT_SET_MESSAGE, (void*)&msg);
-      return;
-   }
 }
 
 
