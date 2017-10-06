@@ -103,6 +103,7 @@ else ifneq (,$(findstring rpi,$(platform)))
       LLE = 0
       CPUFLAGS += -DVC
       GL_LIB := -L/opt/vc/lib -lbrcmGLESv2
+      EGL_LIB := -lbrcmEGL
       INCFLAGS += -I/opt/vc/include -I/opt/vc/include/interface/vcos -I/opt/vc/include/interface/vcos/pthreads
    endif
    WITH_DYNAREC=arm
