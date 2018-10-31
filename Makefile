@@ -349,7 +349,7 @@ ifeq (,$(findstring android,$(platform)))
    LDFLAGS    += -lpthread
 endif
 
-LDFLAGS    += $(fpic) -O2 -lz
+LDFLAGS    += $(fpic) -O2
 
 all: $(TARGET)
 $(TARGET): $(OBJECTS)
