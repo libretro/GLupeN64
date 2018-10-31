@@ -68,7 +68,7 @@ SOURCES_C += \
 	$(LIBRETRO_DEPS_DIR)/libz/uncompr.c \
 	$(LIBRETRO_DEPS_DIR)/libz/zutil.c
 INCFLAGS += -I$(LIBRETRO_DEPS_DIR)/libz
-COREFLAGS += WANT_ZLIB
+COREFLAGS += -DWANT_ZLIB
 
 SOURCES_C += \
 	$(RSPDIR)/src/alist.c \
