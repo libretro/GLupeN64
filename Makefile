@@ -30,8 +30,6 @@ else ifneq (,$(findstring armv,$(platform)))
     ifeq (,$(findstring classic_,$(platform)))
         override platform += unix
     endif
-else ifneq (,$(findstring rpi,$(platform)))
-   override platform += unix
 else ifneq (,$(findstring odroid,$(platform)))
    override platform += unix
 endif
