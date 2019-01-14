@@ -30,8 +30,6 @@ else ifneq (,$(findstring armv,$(platform)))
     ifeq (,$(findstring classic_,$(platform)))
         override platform += unix
     endif
-else ifneq (,$(findstring rpi,$(platform)))
-   override platform += unix
 else ifneq (,$(findstring odroid,$(platform)))
    override platform += unix
 endif
@@ -105,6 +103,7 @@ else ifneq (,$(findstring rpi,$(platform)))
       LLE = 0
       CPUFLAGS += -DVC
       GL_LIB := -L/opt/vc/lib -lbrcmGLESv2
+      EGL_LIB := -lbrcmEGL
       INCFLAGS += -I/opt/vc/include -I/opt/vc/include/interface/vcos -I/opt/vc/include/interface/vcos/pthreads
    endif
    WITH_DYNAREC=arm
