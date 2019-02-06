@@ -30,8 +30,6 @@ else ifneq (,$(findstring armv,$(platform)))
     ifeq (,$(findstring classic_,$(platform)))
         override platform += unix
     endif
-else ifneq (,$(findstring odroid,$(platform)))
-   override platform += unix
 endif
 
 # system platform
@@ -182,8 +180,8 @@ else ifneq (,$(findstring odroid,$(platform)))
    ifneq (,$(findstring ODROIDC,$(BOARD)))
       # ODROID-C1
       CPUFLAGS += -mcpu=cortex-a5
-   else ifneq (,$(findstring ODROID-XU3,$(BOARD)))
-      # ODROID-XU3 & -XU3 Lite
+   else ifneq (,$(findstring ODROID-XU,$(BOARD)))
+      # ODROID-XU3 & -XU3 Lite and -XU4
       ifeq "$(shell expr `gcc -dumpversion` \>= 4.9)" "1"
          CPUFLAGS += -march=armv7ve -mcpu=cortex-a15.cortex-a7
       else
