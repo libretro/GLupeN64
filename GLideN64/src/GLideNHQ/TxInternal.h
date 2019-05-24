@@ -46,11 +46,11 @@
 #define GL_COLOR_INDEX8_EXT  0x80E5
 #elif defined(GLES3)
 #include <GLES3/gl3.h>
-#include <GLES3/gl3ext.h>
+#include <GLES2/gl2ext.h>
 #define GL_COLOR_INDEX8_EXT  0x80E5
 #elif defined(GLES3_1)
 #include <GLES3/gl31.h>
-#include <GLES3/gl3ext.h>
+#include <GLES2/gl2ext.h>
 #define GL_COLOR_INDEX8_EXT  0x80E5
 #elif defined(OS_MAC_OS_X)
 #include <OpenGL/gl.h>
