@@ -407,13 +407,11 @@ LDFLAGS    += $(fpic) -O2 -lz
 
 all: $(TARGET)
 $(TARGET): $(OBJECTS)
-	@echo "** BUILDING $(TARGET) FOR PLATFORM $(platform) **"
 ifeq ($(STATIC_LINKING), 1)
 	$(AR) rcs $@ $(OBJECTS)
 else
 	$(CXX) -o $@ $(OBJECTS) $(LDFLAGS) $(GL_LIB)
 endif
-	@echo "** BUILD SUCCESSFUL! GG NO RE **"
 
 %.o: %.asm
 	nasm $(ASFLAGS) $< -o $@
